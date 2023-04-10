@@ -45,6 +45,10 @@ The app will be available on ``
 
 This project was developed with the following technologies:
 <b>
+- Next Js
+- Stitches
+- Type Script
+- Stripe
 </b>
 
 </br>
