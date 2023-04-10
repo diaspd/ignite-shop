@@ -55,7 +55,7 @@ This project was developed with the following technologies:
 </br>
 
 ## 📄 Project
-💰 .
+💰 Project like a online shop.
 
 <br></br>
 
