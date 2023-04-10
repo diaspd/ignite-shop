@@ -55,7 +55,7 @@ This project was developed with the following technologies:
 <br></br>
 
 ## 🔖 Layout
-- [ - Figma]()
+- [Ignite Shop - Figma](https://www.figma.com/file/FxlDRKOmznBbTH8DsTgnZU/Ignite-Shop-2.0/duplicate)
 
 <br></br>
 
