@@ -11,6 +11,7 @@
 <br></br>
 
 <div align="center">
+  <img alt="project img" title="image" src="./src/assets/capa.png" width="100%"/>
   <img alt="project gif" title="gif" src="./src/assets/template.gif" width="100%"/>
 </div> 
 
@@ -21,7 +22,7 @@
 Clone the project and access the folder.
 
 ```bash
-$ git clone https://github.com/diaspd/
+$ git clone https://github.com/diaspd/ignite-shop.git
 $ cd 
 ```
 
