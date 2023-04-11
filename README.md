@@ -38,10 +38,10 @@ $ npm install
 $ npm run dev
 ```
 To connect to Stripe you will need to create a .env.local file and add 
-- NEXT_URL=https://localhost:3000 
-2 keys for Stripe
-- STRIPE_PUBLIC_KEY=YOUR_KEY 
-- STRIPE_SECRET_KEY=YOURKEY
+- `NEXT_URL=https://localhost:3000` </br>
+  and 2 keys for Stripe
+- `STRIPE_PUBLIC_KEY=YOUR_PUBLIC_KEY`
+- STRIPE_SECRET_KEY=YOUR_SECRET_KEY
 
 The app will be available on `http://localhost:3000`
 
