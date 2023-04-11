@@ -44,7 +44,7 @@ To connect to Stripe you will need to create a `.env.local` file and add
 ```
 - NEXT_URL=https://localhost:3000
 
-  and 2 keys for Stripe:
+// and 2 keys for Stripe:
 - STRIPE_PUBLIC_KEY=YOUR_PUBLIC_KEY
 - STRIPE_SECRET_KEY=YOUR_SECRET_KEY
 ```
