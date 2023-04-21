@@ -31,7 +31,7 @@ export const ImageContainer = styled('div', {
   },
 
   '@media (max-width: 864px)': {
-    minWidth: '80%',
+    maxWidth: '60%',
   }
 })
 

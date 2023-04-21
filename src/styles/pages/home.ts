@@ -13,6 +13,10 @@ export const HomeContainer = styled('main', {
   }
 })
 
+export const SkeletonHome = styled('div', {
+  overflow: 'hidden',
+})
+
 export const Product = styled('div', {
   background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
   borderRadius: 8,
@@ -46,17 +50,30 @@ export const Product = styled('div', {
     transform: 'translateY(110%)',
     opacity: 0,
     transition: 'all 0.3s ease-in-out',
+    cursor: 'default',
 
     strong: {
       fontSize: '$lg',
       color: '$gray100'
     },
 
-    span: {
-      fontSize: '$xl',
-      fontWeight: 'bold',
-      color: '$green300'
-    }
+    button: {
+      padding: '0.4rem',
+      background: '$green500',
+      borderRadius: '6px',
+      border: 'none',
+     
+      '&:not(:disabled):hover': {
+        cursor: 'pointer',
+        backgroundColor: '$green300',
+        transition: 'all 0.3s ease-in-out',
+      },   
+      
+      '&:disabled': {
+        cursor: 'not-allowed',
+        opacity: '0.8'
+      }
+    },
   },
 
   '&:active, &:hover': {
@@ -64,5 +81,16 @@ export const Product = styled('div', {
       transform: 'translateY(0%)',
       opacity: 1
     }
+  },
+})
+
+export const Description = styled('div', {
+  display: 'grid',
+  gap: '0.25rem',
+
+  p: {
+    fontSize: '$xl',
+    fontWeight: 'bold',
+    color: '$green300'
   },
 })

@@ -1,29 +1,33 @@
+import { useEffect, useState } from 'react';
 import { GetStaticProps } from "next";
 import Head from 'next/head';
-import Link from 'next/link'
+import Link from 'next/link';
 import Image from "next/image";
 
-import { HomeContainer, Product } from "../styles/pages/home";
+import { Description, HomeContainer, Product, SkeletonHome } from "../styles/pages/home";
 
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
 
-import { stripe } from "../lib/stipe";
 import Stripe from "stripe";
+import { stripe } from "../lib/stipe";
+
+import { Handbag } from "phosphor-react";
+
+import { useCart } from '../hooks/useCart';
+import { CartProduct } from '../contexts/CartContext';
+import { Skeleton } from '../components/Skeleton';
 
 interface HomeProps {
-  products: {
-    id: string;
-    name: string;
-    imageUrl: string;
-    price: string;
-  } []
+  products: CartProduct[]
 }
 
 export default function Home({ products }: HomeProps) {
+  const [isLoading, setIsLoading] = useState(true)
+
   const [sliderRef] = useKeenSlider({
     slides: {
-      perView: 3,
+      perView: 2,
       spacing: 48,
     }, 
     breakpoints: {
@@ -32,6 +36,16 @@ export default function Home({ products }: HomeProps) {
       },
     },
   })
+  
+  useEffect(() => {
+      setTimeout(() => setIsLoading(false), 2000);
+  }, [])
+ 
+  const { addProductToCart, ItemAlreadyInCart } = useCart()
+  function handleAddProductToCart(event: React.MouseEvent<HTMLElement>, product: CartProduct) {
+    event.preventDefault();
+    addProductToCart(product);
+  }
 
   return (
     <>
@@ -39,21 +53,35 @@ export default function Home({ products }: HomeProps) {
         <title>Home | Ignite Shop</title>
       </Head>
       
-      <HomeContainer ref={sliderRef} className="keen-slider">
-        {products.map(product => {
-        return(
-          <Link key={product.id} href={`/product/${product.id}`} prefetch={false}>
-            <Product className="keen-slider__slide">
-              <Image src={product.imageUrl} width={520} height={480} alt=""/>
-            <footer>
-              <strong>{product.name}</strong>
-              <span>{product.price}</span>
-            </footer>
-            </Product>
-          </Link>
-        )
-      })}
-    </HomeContainer>
+        {isLoading ? (
+          <SkeletonHome>
+            <Skeleton />
+          </SkeletonHome>
+        ) : 
+        <HomeContainer ref={sliderRef} className="keen-slider">
+          {products.map(product => {
+            return(
+            <Link key={product.id} href={`/product/${product.id}`} prefetch={false}>
+              <Product className="keen-slider__slide">
+                <Image src={product.imageUrl} width={520} height={480} alt=""/>
+              <footer>
+                <Description>
+                  <strong>{product.name}</strong>
+                  <p>{product.price}</p>
+                </Description>
+                <button  
+                  onClick={(event) => handleAddProductToCart(event, product)}
+                  disabled={ItemAlreadyInCart(product.id)}
+                >                
+                  <Handbag weight='bold' size={32} color="white"/>
+                </button>
+              </footer>
+              </Product>
+            </Link>
+          )
+         })}    
+         </HomeContainer>
+        }
     </>
   )
 }
@@ -74,6 +102,8 @@ export const getStaticProps: GetStaticProps = async () => {
         style: 'currency',
         currency: 'BRL',
       }).format(price.unit_amount! / 100),
+      numberPrice: price.unit_amount! / 100,
+      defaultPrice: price.id,
     }
   })
 
