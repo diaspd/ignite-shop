@@ -12,7 +12,7 @@
 
 <div align="center">
   <img alt="project img" title="image" src="./src/assets/capa.png" width="100%"/>
-<!--   <img alt="project gif" title="gif" src="./src/assets/template.gif" width="100%"/> -->
+ <img alt="project gif" title="gif" src="./public/template.gif" width="100%"/>
 </div> 
 
 <br></br>
