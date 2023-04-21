@@ -5,16 +5,10 @@ import Stripe from "stripe"
 import Image from "next/image"
 import Head from "next/head"
 import { useCart } from "@/src/hooks/useCart"
+import { CartProduct } from "@/src/contexts/CartContext"
 
 interface ProductProps {
-  product : { 
-    id: string;
-    name: string;
-    imageUrl: string;
-    price: string;
-    description: string;
-    defaultPriceId: string;
-  }
+  product: CartProduct;
 }
 
 export default function Product({ product }: ProductProps) {
@@ -75,9 +69,9 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({ para
           style: 'currency',
           currency: 'BRL',
         }).format(price.unit_amount! / 100),
-        description: product.description,
-        defaultPriceId: price.id,
         numberPrice: price.unit_amount! / 100,
+        description: product.description,
+        defaultPrice: price.id,
       }
     }, 
     revalidate: 60 * 60 * 1
