@@ -42,6 +42,7 @@ export default function Home({ products }: HomeProps) {
   }, [])
  
   const { addProductToCart, ItemAlreadyInCart } = useCart()
+  
   function handleAddProductToCart(event: React.MouseEvent<HTMLElement>, product: CartProduct) {
     event.preventDefault();
     addProductToCart(product);
