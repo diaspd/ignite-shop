@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Ignite Shop</h1>
+  <h1> Ignite Shop </h1>
 </div> 
 
 <div align="center">
