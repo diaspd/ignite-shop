@@ -68,7 +68,7 @@ This project was developed with the following technologies:
 </br>
 
 ## 📄 Project
-💰 Project like a online shop.
+💰 A online shop contructed with Next.js, using Stripe conection, context, hooks, SSG, SSR, SEO and more.
 
 <br></br>
 
