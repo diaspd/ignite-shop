@@ -2,6 +2,10 @@
   <h1> Ignite Shop </h1>
 </div> 
 
+<h2 align="center">
+  Link to project: <a href="https://ignite-shop-diaspd.vercel.app" target="_blank">Ignite Shop</a>
+</h2>
+
 <div align="center">
   <a href="#-Technologies"><b>Technologies</b></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-Project"><b>Project</b></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
